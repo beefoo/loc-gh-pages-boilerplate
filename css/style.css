@@ -1,8 +1,10 @@
 :root {
-    --text-base-color: #1b1b1b;
-    --text-primary-color: #005ea2;
-    --text-primary-dark-color: #1a4480;
-    --bg-base-lighter: #dfe1e2;
+    --text-base-darkest: #1b1b1b;
+    --text-base-lightest: #f0f0f0;
+    --text-primary: #005ea2;
+    --text-primary-dark: #1a4480;
+    --text-primary-lighter: #d9e8f6;
+    --text-primary-light: #73b3e7;
     --bg-base-lightest: #f0f0f0;
     --bg-base-lighter: #dfe1e2;
     --bg-base-light: #a9aeb1;
@@ -13,7 +15,7 @@
 }
 
 body {
-    color: var(--text-base-color);
+    color: var(--text-base-darkest);
     background-color: white;
     overflow-x: hidden;
     font-family: Arial, sans-serif;
@@ -25,10 +27,10 @@ body {
 
 a,
 a:visited {
-    color: var(--text-primary-color);
+    color: var(--text-primary);
 }
 a:hover {
-    color: var(--text-primary-dark-color);
+    color: var(--text-primary-dark);
 }
 
 p, li {
@@ -50,8 +52,17 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--bg-base-lighter);
-    border-bottom: 1px solid var(--bg-base-light);
+    background: var(--bg-base-darkest);
+    border-bottom: 1px solid var(--bg-base-darker);
+}
+.loc-header p {
+    color: var(--text-base-lightest);
+}
+.loc-header a {
+    color: var(--text-primary-light);
+}
+.loc-header a:hover {
+    color: var(--text-primary-lighter);
 }
 @media screen and ((max-height: 520px) or (max-width: 600px)) {
     .loc-header {
