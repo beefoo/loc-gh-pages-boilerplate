@@ -72,6 +72,9 @@ main {
     padding: 1rem;
     flex-grow: 1;
     position: relative;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
 }
 main a[href^="http"]::after,
 main a[href^="https://"]::after
@@ -96,6 +99,23 @@ main a[href^="https://libraryofcongress.github.io"]::after
   display: none !important;
 }
 
+.breadcrumbs-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.breadcrumbs-list li {
+    display: inline-block;
+    margin-right: 10px;
+}
+.breadcrumbs-list li::after {
+    content: "›";
+    display: inline-block;
+    margin-left: 10px;
+}
+.breadcrumbs-list li.current::after {
+    content: none;
+}
 
 .loc-header {
     position: sticky;
