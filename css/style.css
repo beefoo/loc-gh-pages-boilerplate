@@ -31,6 +31,7 @@ a,
 a:visited {
     color: var(--text-primary);
 }
+
 a:hover {
     color: var(--text-primary-dark);
 }
@@ -42,8 +43,8 @@ li {
 
 button,
 .button,
-a.button:visited,
-a.button {
+a.button,
+a.button:visited {
     background: var(--bg-primary);
     color: var(--text-base-lightest);
     border: none;
@@ -51,16 +52,19 @@ a.button {
     display: inline-block;
     text-decoration: none;
 }
+
+button + button,
+.button + .button {
+    margin-left: 6px;
+}
+
 button:hover,
 .button:hover,
 a.button:hover {
     background: var(--bg-primary-dark);
     color: var(--text-base-lightest);
 }
-button + button,
-.button + .button {
-    margin-left: 6px;
-}
+
 button.small,
 .button.small {
     font-size: 0.8rem;
@@ -79,16 +83,16 @@ main {
 main a[href^="http"]::after,
 main a[href^="https://"]::after
 {
-  content: "";
-  width: 12px;
-  height: 12px;
-  margin-left: 4px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
-  vertical-align: middle;
+    content: "";
+    width: 12px;
+    height: 12px;
+    margin-left: 4px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
 }
 main a[href^="https://loc.gov"]::after,
 main a[href^="https://www.loc.gov"]::after,
@@ -96,7 +100,7 @@ main a[href^="https://staff.loc.gov"]::after,
 main a[href^="https://blogs.loc.gov"]::after,
 main a[href^="https://libraryofcongress.github.io"]::after
 {
-  display: none !important;
+    display: none !important;
 }
 
 .breadcrumbs-list {
@@ -104,15 +108,18 @@ main a[href^="https://libraryofcongress.github.io"]::after
     margin: 0;
     padding: 0;
 }
+
 .breadcrumbs-list li {
     display: inline-block;
     margin-right: 10px;
 }
+
 .breadcrumbs-list li::after {
     content: "›";
     display: inline-block;
     margin-left: 10px;
 }
+
 .breadcrumbs-list li.current::after {
     content: none;
 }
@@ -130,35 +137,44 @@ main a[href^="https://libraryofcongress.github.io"]::after
     border-bottom: 1px solid var(--bg-base-darker);
     z-index: 10000;
 }
+
 .loc-header p {
     color: var(--text-base-lightest);
 }
+
 .loc-header a {
     color: var(--text-primary-light);
 }
+
 .loc-header a:hover {
     color: var(--text-primary-lighter);
 }
+
 .loc-header a.button {
     color: var(--text-base-lightest);
     vertical-align: middle;
 }
+
 .loc-header a.button:hover {
     color: var(--text-base-lightest);
 }
-@media screen and ((max-height: 520px) or (max-width: 600px)) {
+
+@media screen and ((height <= 520px) or (width <= 600px)) {
     .loc-header {
         position: relative;
     }
 }
+
 .loc-header .loc-logo img {
     height: 30px;
     width: auto;
     margin-right: 6px;
 }
+
 .loc-header .project-description {
     text-align: center;
 }
+
 .loc-header .project-description p {
     margin: 0;
     font-size: 0.9rem;
@@ -172,12 +188,14 @@ main a[href^="https://libraryofcongress.github.io"]::after
     font-size: 0.9rem;
     position: relative;
 }
+
 .loc-footer .loc-footer-nav-list {
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
 }
+
 .loc-footer .loc-footer-nav-list li {
     margin: 0 6px;
 }
@@ -190,4 +208,4 @@ main a[href^="https://libraryofcongress.github.io"]::after
     position: absolute;
     white-space: nowrap;
     width: 1px;
-  }
+}
